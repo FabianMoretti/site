@@ -7,48 +7,48 @@ var model = {
     ]
 };
 var purchaseApp = angular.module("purchaseApp", []);
-    purchaseApp.controller("purchaseController", function ($scope) {
-    $scope.list = model;
-    $scope.name = 'Отримати Чек';
+    purchaseApp.controller("purchaseController", function () {
+    this.list = model;
+    this.name = 'Отримати Чек';
 
-    $scope.addItem = function (text, price) {
+    this.addItem = function (text, price) {
         price = parseFloat(price); 
         if(text != "" && !isNaN(price))
         {
-            $scope.list.items.push({ purchase: text, price: price, done: false });
+            this.list.items.push({ purchase: text, price: price, done: false });
         }
     }
 
-    $scope.deleteItem = function () {
+    this.deleteItem = function () {
   
-    	$scope.list.items.splice( $scope.list.items.length - 1, 1 );
+    	this.list.items.splice( this.list.items.length - 1, 1 );
     }
 
-    $scope.clearCheckBox = function () {
+    this.clearCheckBox = function () {
     	
-    	for (var i = 0; i < $scope.list.items.length; i++) {
-    		$scope.list.items[i].done = false;
+    	for (var i = 0; i < this.list.items.length; i++) {
+    		this.list.items[i].done = false;
     	}
     }
 
-    $scope.getPriceList = function () {
-    		$scope.sum = 0;
-    	for (var i = 0; i < $scope.list.items.length; i++) {
-    		if($scope.list.items[i].done == false){
-    			 $scope.list.items.splice( i, 1 );
+    this.getPriceList = function () {
+    		this.sum = 0;
+    	for (var i = 0; i < this.list.items.length; i++) {
+    		if(this.list.items[i].done == false){
+    			 this.list.items.splice( i, 1 );
     			 i--;
     			} else {
-    				$scope.sum  += $scope.list.items[i].price;
+    				this.sum  += this.list.items[i].price;
     			 	
     		} 
     	}
     }
 
-    $scope.changeButName = function (a) {
+    this.changeButName = function (a) {
     	if (a != true) {
-    		$scope.name = 'Отримати Чек';
+    		this.name = 'Отримати Чек';
     	} else {
-    		$scope.name = 'Назад';
+    		this.name = 'Назад';
     	}
     }
 });

@@ -12,26 +12,19 @@
 	<script src="script.js"></script>
 	<script type="text/javascript"></script>
 </head>
-<body ng-controller="purchaseController">
+<body ng-controller="purchaseController as purchaseController">
 
 	<br><br><br>
 	<h1>Список покупок</h1>
 	<br>
-
-
-	<input class="form-control" ng-model="text" placeholder="Назва">
+		<input class="form-control" ng-model="text" placeholder="Назва">
 	<input type="number" class="form-control" ng-model="price" placeholder="Ціна">
 
-	<button class="btn btn-default" ng-click="addItem(text, price)">Додати</button>
-	<button class="btn btn-default" ng-click="deleteItem()">Видалити</button>
-	<button id="clerarCheckBoxButton" class="btn btn-default" ng-click="clearCheckBox()">Очисити</button>
-	
+	<button class="btn btn-default" ng-click="purchaseController.addItem(text, price)">Додати</button>
+	<button class="btn btn-default" ng-click="purchaseController.deleteItem()">Видалити</button>
+	<button id="clerarCheckBoxButton" class="btn btn-default" ng-click="purchaseController.clearCheckBox()">Очисити</button>
+	<button class="btn btn-default" type="submit" ng-click="purchaseController.getPriceList(); a = !a; purchaseController.changeButName(a); purchaseController.returnBack()">{{purchaseController.name}}</button>
 
-		
-		<button class="btn btn-default" type="submit" ng-click="getPriceList(); a = !a; changeButName(a)">{{name}}</button>
-
-	
-	
 	<br><br><br>
 
 	<table class="table table-striped">
@@ -42,24 +35,18 @@
 				<td>Куплено</td>
 			</tr>
 		</thead>
-
 		<tbody>
-			<tr ng-repeat="item in list.items">
+			<tr ng-repeat="item in purchaseController.list.items">
 				<td>{{item.purchase}}</td>
 				<td>{{item.price}}</td>
 				<td><input type="checkbox" ng-model="item.done" /></td>
 			</tr>
-
 			<tr>
 				<td class="TotalPrice" ng-show="a">Загальна вартість:</td>
-				<td>{{sum}}</td>
+				<td>{{purchaseController.sum}}</td>
 				<td></td>
 			</tr>
 		</tbody>
-		
-
 	</table>
-	
-	
 </body>
 </html>
