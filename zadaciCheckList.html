@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="purchaseApp">
+<head>
+	<title>start</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+	<script src="angular.min.js"></script>
+	
+	<script src="script.js"></script>
+	<script type="text/javascript"></script>
+</head>
+<body ng-controller="purchaseController">
+
+	<br><br><br>
+	<h1>Чек</h1>
+	<br><br>
+
+
+	
+	<br><br><br>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Предмет</td>
+				<td>Ціна</td>
+				<td>Куплено</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="item in list.items">
+				<td>{{item.purchase}}</td>
+				<td>{{item.price}}</td>
+				<td><input type="checkbox" ng-model="item.done" /></td>
+			</tr>
+
+			<tr>
+				<td class="TotalPrice">Загальна вартість:</td>
+				<td>{{sum}}</td>
+				<td></td>
+			</tr>
+			
+		</tbody>
+		
+
+	</table>
+	
+	
+		
+	
+
+</body>
+</html>

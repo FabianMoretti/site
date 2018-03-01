@@ -1,0 +1,22 @@
+.form-control {
+	width: 15%;
+	display: inline;
+}
+
+thead {
+	background-color: grey;
+}
+
+#clerarCheckBoxButton {
+	margin-left: 250px;
+}
+
+form {
+	display: inline;
+}
+
+.TotalPrice {
+	font-weight: 500;
+	font-size: 25px;
+}
+
